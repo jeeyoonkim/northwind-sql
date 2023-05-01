@@ -1,0 +1,1 @@
+SELECT ROUND(SUM(Discount*UnitPrice*Quantity),2) AS TotalDiscount FROM OrderDetail
