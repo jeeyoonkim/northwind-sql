@@ -76,7 +76,6 @@ CASE
 END AS FractionDiscontinuedValue
 FROM Q4b;
 
-
 -- 6. Revenue by Customer  
 
 SELECT CustomerID, CompanyName,
@@ -91,6 +90,17 @@ ON Orders.OrderID = OrderDetail.OrderID
 
 GROUP BY Orders.CustomerID
 ORDER BY Orders.CustomerID ASC
+
+-- 7. Customer with No Revenue
+
+SELECT Customers.CustomerID, Customers.CompanyName,
+0 AS Revenue FROM Customers
+
+WHERE Customers.CustomerID NOT IN
+( SELECT Orders.CustomerID FROM Orders)
+
+GROUP BY Customers.CustomerID
+ORDER BY Customers.CustomerID ASC
 
 -- 7. Customer with No Revenue
 
