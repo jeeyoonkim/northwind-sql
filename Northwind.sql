@@ -1,4 +1,4 @@
--- ** The dataset Nothwind.sqlite was given by ORIE3120(Practical Tools for Operations Research, Machine Learning and Data Science)
+-- ** The dataset Northwind.sqlite was given by ORIE3120(Practical Tools for Operations Research, Machine Learning and Data Science)
 --    class in Cornell University
 
 -- ** Project Goal: To see if there are opportunities to increase revenue by offering fewer discounts.
