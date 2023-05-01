@@ -101,14 +101,3 @@ WHERE Customers.CustomerID NOT IN
 
 GROUP BY Customers.CustomerID
 ORDER BY Customers.CustomerID ASC
-
--- 7. Customer with No Revenue
-
-SELECT Customers.CustomerID, Customers.CompanyName,
-0 AS Revenue FROM Customers
-
-WHERE Customers.CustomerID NOT IN
-( SELECT Orders.CustomerID FROM Orders)
-
-GROUP BY Customers.CustomerID
-ORDER BY Customers.CustomerID ASC
