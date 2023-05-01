@@ -1,4 +1,4 @@
--- Goal: To see if there are opportunities to increase revenue by offering fewer discounts.
+-- Project Goal: To see if there are opportunities to increase revenue by offering fewer discounts.
 
 -- 1. Total Discount (understand the total amount of money spent on discounts)
 
