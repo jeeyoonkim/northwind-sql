@@ -1,10 +1,13 @@
--- Project Goal: To see if there are opportunities to increase revenue by offering fewer discounts.
+-- ** The dataset Nothwind.sqlite was given by ORIE3120(Practical Tools for Operations Research, Machine Learning and Data Scienc)
+class in Cornell University
 
--- 1. Total Discount (understand the total amount of money spent on discounts)
+-- ** Project Goal: To see if there are opportunities to increase revenue by offering fewer discounts.
+
+-- ** 1. Total Discount (understand the total amount of money spent on discounts)
 
 SELECT ROUND(SUM(Discount*UnitPrice*Quantity),2) AS TotalDiscount FROM OrderDetail
 
--- 2. Discounts by order 
+--  ** 2. Discounts by order 
 --   - list of orders along with the OrderID, the total amount of money spent on discounts for this order,
 --     how much money the customer would have spent if the items in the order hadn’t been discounted, the ratio of the two
 
@@ -17,7 +20,7 @@ FROM OrderDetail
 GROUP BY OrderID
 ORDER BY DiscountSpend DESC
 
--- 3. Discounts by customer 
+-- ** 3. Discounts by customer 
 --  - list of orders along with CustomerID, the total amount of money spent on discounts for all orders made by this customer,
 --    how much money the customer would have spent on these orders if the items hadn’t been discounted, the ratio of the two
 
@@ -31,7 +34,7 @@ ON Orders.OrderID = OrderDetail.OrderID
 GROUP BY CustomerID
 ORDER BY DiscountSpend DESC
 
--- 4. Add a company name into 3 
+-- ** 4. Add a company name into 3 
 
 SELECT CompanyName, Orders.CustomerID,
 SUM(Discount*UnitPrice*Quantity) AS DiscountSpend,
@@ -49,7 +52,7 @@ GROUP BY Orders.CustomerID
 ORDER BY DiscountSpend DESC
 
 
--- 5. Understanding discontinued inventory 
+-- ** 5. Understanding discontinued inventory 
 -- Goal: Find what fraction of the inventory in each category has been discontinued.
 --       If there is a category with a high fraction of discontinued products, then this is a problem to investigate. 
 
@@ -76,7 +79,7 @@ CASE
 END AS FractionDiscontinuedValue
 FROM Q4b;
 
--- 6. Revenue by Customer  
+-- ** 6. Revenue by Customer  
 
 SELECT CustomerID, CompanyName,
 ROUND(SUM(UnitPrice * Quantity * (1-Discount)),2) AS Revenue
@@ -91,7 +94,7 @@ ON Orders.OrderID = OrderDetail.OrderID
 GROUP BY Orders.CustomerID
 ORDER BY Orders.CustomerID ASC
 
--- 7. Customer with No Revenue
+-- ** 7. Customer with No Revenue
 
 SELECT Customers.CustomerID, Customers.CompanyName,
 0 AS Revenue FROM Customers
